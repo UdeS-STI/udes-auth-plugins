@@ -23,7 +23,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
- *
+ * Authentication using a user/pt in basic auth format.
+ * @class
  */
 var BasicAuthProxyTicketPlugin = function (_AuthHandler) {
   _inherits(BasicAuthProxyTicketPlugin, _AuthHandler);
@@ -36,6 +37,15 @@ var BasicAuthProxyTicketPlugin = function (_AuthHandler) {
 
   _createClass(BasicAuthProxyTicketPlugin, [{
     key: 'authenticate',
+
+    /**
+     * Append auth info to HTTP options.
+     * @async
+     * @param {Object} session - Session variables.
+     * @param {Object} options - HTTP options.
+     * @param {Boolean} [retry=true] - Retry authentication when a 401 is returned if true.
+     * @returns {Object} HTTP options with appended auth info.
+     */
     value: function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(session, options, retry) {
         return regeneratorRuntime.wrap(function _callee$(_context) {

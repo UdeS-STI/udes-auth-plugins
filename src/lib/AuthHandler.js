@@ -1,4 +1,5 @@
 /**
+ * Interface for handling various types of authentication.
  * @interface
  */
 export default class AuthHandler {
