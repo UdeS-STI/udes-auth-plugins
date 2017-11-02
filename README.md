@@ -1,8 +1,8 @@
 UdeS Auth Plugins
 =================
 
-[![CircleCI](https://circleci.com/gh/UdeS-STI/udes-auth-plugin.svg?style=svg)](https://circleci.com/gh/UdeS-STI/udes-auth-plugin)
-[![npm](https://img.shields.io/npm/v/udes-auth-plugin.svg?style=flat-square)](https://www.npmjs.com/package/udes-auth-plugin)
+[![CircleCI](https://circleci.com/gh/UdeS-STI/udes-auth-plugins.svg?style=svg)](https://circleci.com/gh/UdeS-STI/udes-auth-plugins)
+[![npm](https://img.shields.io/npm/v/udes-auth-plugins.svg?style=flat-square)](https://www.npmjs.com/package/udes-auth-plugins)
 ![Node](https://img.shields.io/badge/node-6.10.1-brightgreen.svg)
 
 # Introduction
