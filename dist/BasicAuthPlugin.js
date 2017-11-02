@@ -8,9 +8,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _AuthPluginInterface2 = require('./AuthHandler');
+var _AuthHandler2 = require('./lib/AuthHandler');
 
-var _AuthPluginInterface3 = _interopRequireDefault(_AuthPluginInterface2);
+var _AuthHandler3 = _interopRequireDefault(_AuthHandler2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25,63 +25,39 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  *
  */
-var BasicAuthProxyTicketPlugin = function (_AuthPluginInterface) {
-  _inherits(BasicAuthProxyTicketPlugin, _AuthPluginInterface);
+var BasicAuthPlugin = function (_AuthHandler) {
+  _inherits(BasicAuthPlugin, _AuthHandler);
 
-  function BasicAuthProxyTicketPlugin() {
-    _classCallCheck(this, BasicAuthProxyTicketPlugin);
+  function BasicAuthPlugin() {
+    _classCallCheck(this, BasicAuthPlugin);
 
-    return _possibleConstructorReturn(this, (BasicAuthProxyTicketPlugin.__proto__ || Object.getPrototypeOf(BasicAuthProxyTicketPlugin)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (BasicAuthPlugin.__proto__ || Object.getPrototypeOf(BasicAuthPlugin)).apply(this, arguments));
   }
 
-  _createClass(BasicAuthProxyTicketPlugin, [{
+  _createClass(BasicAuthPlugin, [{
     key: 'authenticate',
     value: function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(session, options, retry) {
+      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(session, options) {
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.prev = 0;
-                _context.t0 = session.cas.pt;
-
-                if (_context.t0) {
-                  _context.next = 6;
-                  break;
-                }
-
-                _context.next = 5;
-                return session.getProxyTicket(!retry);
-
-              case 5:
-                _context.t0 = _context.sent;
-
-              case 6:
-                session.cas.pt = _context.t0;
-                _context.next = 11;
-                break;
-
-              case 9:
-                _context.prev = 9;
-                _context.t1 = _context['catch'](0);
-
-              case 11:
                 return _context.abrupt('return', _extends({}, options, {
                   auth: {
                     user: session.cas.user,
-                    pass: session.cas.pt
+                    pass: session.cas.pass
                   }
                 }));
 
-              case 12:
+              case 1:
               case 'end':
                 return _context.stop();
             }
           }
-        }, _callee, this, [[0, 9]]);
+        }, _callee, this);
       }));
 
-      function authenticate(_x, _x2, _x3) {
+      function authenticate(_x, _x2) {
         return _ref.apply(this, arguments);
       }
 
@@ -89,7 +65,7 @@ var BasicAuthProxyTicketPlugin = function (_AuthPluginInterface) {
     }()
   }]);
 
-  return BasicAuthProxyTicketPlugin;
-}(_AuthPluginInterface3.default);
+  return BasicAuthPlugin;
+}(_AuthHandler3.default);
 
-exports.default = BasicAuthProxyTicketPlugin;
+exports.default = BasicAuthPlugin;

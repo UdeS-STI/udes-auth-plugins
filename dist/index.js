@@ -5,15 +5,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SessionIdPlugin = exports.BasicAuthProxyTicketPlugin = exports.BasicAuthPlugin = undefined;
 
-var _BasicAuthPlugin = require('./plugins/BasicAuthPlugin');
+var _BasicAuthPlugin = require('./BasicAuthPlugin');
 
 var _BasicAuthPlugin2 = _interopRequireDefault(_BasicAuthPlugin);
 
-var _BasicAuthProxyTicketPlugin = require('./plugins/BasicAuthProxyTicketPlugin');
+var _BasicAuthProxyTicketPlugin = require('./BasicAuthProxyTicketPlugin');
 
 var _BasicAuthProxyTicketPlugin2 = _interopRequireDefault(_BasicAuthProxyTicketPlugin);
 
-var _SessionIdPlugin = require('./plugins/SessionIdPlugin');
+var _SessionIdPlugin = require('./SessionIdPlugin');
 
 var _SessionIdPlugin2 = _interopRequireDefault(_SessionIdPlugin);
 

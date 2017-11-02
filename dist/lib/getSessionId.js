@@ -5,25 +5,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getSessionId = undefined;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _request = require('request');
 
 var _request2 = _interopRequireDefault(_request);
 
-var _AuthPluginInterface2 = require('./AuthHandler');
-
-var _AuthPluginInterface3 = _interopRequireDefault(_AuthPluginInterface2);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
@@ -157,75 +143,3 @@ var getSessionId = exports.getSessionId = function getSessionId(session) {
     };
   }());
 };
-
-/**
- *
- */
-
-var SessionIdPlugin = function (_AuthPluginInterface) {
-  _inherits(SessionIdPlugin, _AuthPluginInterface);
-
-  function SessionIdPlugin() {
-    _classCallCheck(this, SessionIdPlugin);
-
-    return _possibleConstructorReturn(this, (SessionIdPlugin.__proto__ || Object.getPrototypeOf(SessionIdPlugin)).apply(this, arguments));
-  }
-
-  _createClass(SessionIdPlugin, [{
-    key: 'authenticate',
-    value: function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(session, options) {
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                _context3.t0 = _extends;
-                _context3.t1 = {};
-                _context3.t2 = options;
-                _context3.t3 = _extends;
-                _context3.t4 = {};
-                _context3.t5 = options.headers || {};
-                _context3.t6 = session.apiSessionId;
-
-                if (_context3.t6) {
-                  _context3.next = 11;
-                  break;
-                }
-
-                _context3.next = 10;
-                return getSessionId(session);
-
-              case 10:
-                _context3.t6 = _context3.sent;
-
-              case 11:
-                _context3.t7 = _context3.t6;
-                _context3.t8 = {
-                  'x-sessionid': _context3.t7
-                };
-                _context3.t9 = (0, _context3.t3)(_context3.t4, _context3.t5, _context3.t8);
-                _context3.t10 = {
-                  headers: _context3.t9
-                };
-                return _context3.abrupt('return', (0, _context3.t0)(_context3.t1, _context3.t2, _context3.t10));
-
-              case 16:
-              case 'end':
-                return _context3.stop();
-            }
-          }
-        }, _callee3, this);
-      }));
-
-      function authenticate(_x6, _x7) {
-        return _ref3.apply(this, arguments);
-      }
-
-      return authenticate;
-    }()
-  }]);
-
-  return SessionIdPlugin;
-}(_AuthPluginInterface3.default);
-
-exports.default = SessionIdPlugin;

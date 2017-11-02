@@ -8,9 +8,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _AuthPluginInterface2 = require('AuthHandler');
+var _AuthHandler2 = require('./lib/AuthHandler');
 
-var _AuthPluginInterface3 = _interopRequireDefault(_AuthPluginInterface2);
+var _AuthHandler3 = _interopRequireDefault(_AuthHandler2);
+
+var _getSessionId = require('./lib/getSessionId');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25,16 +27,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  *
  */
-var BasicAuthPlugin = function (_AuthPluginInterface) {
-  _inherits(BasicAuthPlugin, _AuthPluginInterface);
+var SessionIdPlugin = function (_AuthHandler) {
+  _inherits(SessionIdPlugin, _AuthHandler);
 
-  function BasicAuthPlugin() {
-    _classCallCheck(this, BasicAuthPlugin);
+  function SessionIdPlugin() {
+    _classCallCheck(this, SessionIdPlugin);
 
-    return _possibleConstructorReturn(this, (BasicAuthPlugin.__proto__ || Object.getPrototypeOf(BasicAuthPlugin)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (SessionIdPlugin.__proto__ || Object.getPrototypeOf(SessionIdPlugin)).apply(this, arguments));
   }
 
-  _createClass(BasicAuthPlugin, [{
+  _createClass(SessionIdPlugin, [{
     key: 'authenticate',
     value: function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(session, options) {
@@ -42,14 +44,37 @@ var BasicAuthPlugin = function (_AuthPluginInterface) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                return _context.abrupt('return', _extends({}, options, {
-                  auth: {
-                    user: session.cas.user,
-                    pass: session.cas.pass
-                  }
-                }));
+                _context.t0 = _extends;
+                _context.t1 = {};
+                _context.t2 = options;
+                _context.t3 = _extends;
+                _context.t4 = {};
+                _context.t5 = options.headers || {};
+                _context.t6 = session.apiSessionId;
 
-              case 1:
+                if (_context.t6) {
+                  _context.next = 11;
+                  break;
+                }
+
+                _context.next = 10;
+                return (0, _getSessionId.getSessionId)(session);
+
+              case 10:
+                _context.t6 = _context.sent;
+
+              case 11:
+                _context.t7 = _context.t6;
+                _context.t8 = {
+                  'x-sessionid': _context.t7
+                };
+                _context.t9 = (0, _context.t3)(_context.t4, _context.t5, _context.t8);
+                _context.t10 = {
+                  headers: _context.t9
+                };
+                return _context.abrupt('return', (0, _context.t0)(_context.t1, _context.t2, _context.t10));
+
+              case 16:
               case 'end':
                 return _context.stop();
             }
@@ -65,7 +90,7 @@ var BasicAuthPlugin = function (_AuthPluginInterface) {
     }()
   }]);
 
-  return BasicAuthPlugin;
-}(_AuthPluginInterface3.default);
+  return SessionIdPlugin;
+}(_AuthHandler3.default);
 
-exports.default = BasicAuthPlugin;
+exports.default = SessionIdPlugin;

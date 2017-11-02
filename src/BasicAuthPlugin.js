@@ -1,9 +1,9 @@
-import AuthPluginInterface from 'AuthHandler'
+import AuthHandler from './lib/AuthHandler'
 
 /**
  *
  */
-export default class BasicAuthPlugin extends AuthPluginInterface {
+export default class BasicAuthPlugin extends AuthHandler {
   async authenticate (session, options) {
     return {
       ...options,
