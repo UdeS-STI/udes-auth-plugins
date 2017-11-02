@@ -17,6 +17,9 @@
   "bugs": {
     "url": "https://github.com/UdeS-STI/udes-auth-plugins/issues"
   },
+  "dependencies": {
+    "request": "^2.83.0"
+  },
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-eslint": "8.0.0",

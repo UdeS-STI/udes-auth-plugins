@@ -1,4 +1,4 @@
-import AuthPluginInterface from './AuthPluginInterface'
+import AuthPluginInterface from './AuthHandler'
 
 /**
  *

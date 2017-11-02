@@ -13,7 +13,7 @@ var _request = require('request');
 
 var _request2 = _interopRequireDefault(_request);
 
-var _AuthPluginInterface2 = require('./AuthPluginInterface');
+var _AuthPluginInterface2 = require('./AuthHandler');
 
 var _AuthPluginInterface3 = _interopRequireDefault(_AuthPluginInterface2);
 

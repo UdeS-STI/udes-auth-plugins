@@ -1,6 +1,6 @@
 import request from 'request'
 
-import AuthPluginInterface from './AuthPluginInterface'
+import AuthPluginInterface from './AuthHandler'
 
 /**
  * Obtain session id from API.

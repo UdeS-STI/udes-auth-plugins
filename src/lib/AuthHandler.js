@@ -1,7 +1,7 @@
 /**
  * @interface
  */
-export default class AuthPluginInterface {
+export default class AuthHandler {
   constructor () {
     if (!this.authenticate) {
       throw Error('Missing interface method `authenticate`')
