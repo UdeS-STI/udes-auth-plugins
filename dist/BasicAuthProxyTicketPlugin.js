@@ -61,7 +61,7 @@ var BasicAuthProxyTicketPlugin = function (_AuthHandler) {
                 }
 
                 _context.next = 5;
-                return session.getProxyTicket(!retry);
+                return session.getProxyTicket(session.targetService, !retry);
 
               case 5:
                 _context.t0 = _context.sent;
