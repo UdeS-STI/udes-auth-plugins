@@ -32,7 +32,7 @@ var getSessionId = exports.getSessionId = function getSessionId(session) {
               pt = void 0;
               _context2.prev = 1;
               _context2.next = 4;
-              return session.getProxyTicket(!retry);
+              return session.getProxyTicket(session.targetService, !retry);
 
             case 4:
               pt = _context2.sent;
