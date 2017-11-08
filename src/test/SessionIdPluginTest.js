@@ -5,7 +5,10 @@ import SessionIdPlugin from '../SessionIdPlugin'
 
 const options = {}
 const session = {
-  apiSessionId: 'session-id',
+  path: '/path',
+  apiSessionIds: {
+    '/path': 'session-id'
+  },
 }
 
 const authObject = {
