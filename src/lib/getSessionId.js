@@ -43,8 +43,8 @@ export const getSessionId = (session, retry = true) => new Promise(async (resolv
     }
 
     try {
-      const { sessionId } = JSON.parse(response.body)
-      session.apiSessionId = sessionId
+      const sessionId = response.headers['x-sessionid']
+      session.apiSessionIds[session.path] = sessionId
       resolve(sessionId)
     } catch (err) {
       const error = { statusCode: 500, message: 'Cannot get session id' }

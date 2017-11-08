@@ -18,7 +18,7 @@ export default class SessionIdPlugin extends AuthHandler {
       ...options,
       headers: {
         ...(options.headers || {}),
-        'x-sessionid': session.apiSessionId || await getSessionId(session),
+        'x-sessionid': session.apiSessionIds[session.path] || await getSessionId(session),
       },
     }
   }

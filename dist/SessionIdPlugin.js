@@ -59,7 +59,7 @@ var SessionIdPlugin = function (_AuthHandler) {
                 _context.t3 = _extends;
                 _context.t4 = {};
                 _context.t5 = options.headers || {};
-                _context.t6 = session.apiSessionId;
+                _context.t6 = session.apiSessionIds[session.path];
 
                 if (_context.t6) {
                   _context.next = 11;

@@ -59,7 +59,7 @@ var getSessionId = exports.getSessionId = function getSessionId(session) {
 
               (0, _request2.default)(options, function () {
                 var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(error, response) {
-                  var _error, _JSON$parse, sessionId, _error2;
+                  var _error, sessionId, _error2;
 
                   return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -107,9 +107,9 @@ var getSessionId = exports.getSessionId = function getSessionId(session) {
                         case 18:
 
                           try {
-                            _JSON$parse = JSON.parse(response.body), sessionId = _JSON$parse.sessionId;
+                            sessionId = response.headers['x-sessionid'];
 
-                            session.apiSessionId = sessionId;
+                            session.apiSessionIds[session.path] = sessionId;
                             resolve(sessionId);
                           } catch (err) {
                             _error2 = { statusCode: 500, message: 'Cannot get session id' };
