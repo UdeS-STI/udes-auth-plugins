@@ -7,7 +7,7 @@ const options = {}
 const session = {
   path: '/path',
   apiSessionIds: {
-    '/path': 'session-id'
+    '/path': 'session-id',
   },
 }
 
