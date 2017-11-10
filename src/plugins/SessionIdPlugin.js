@@ -1,5 +1,5 @@
-import AuthHandler from './lib/AuthHandler'
-import { getSessionId } from './lib/getSessionId'
+import { AuthHandler } from 'udes-node-orchestrator'
+import { getSessionId } from '../lib/getSessionId'
 
 /**
  * Authentication using a session id.

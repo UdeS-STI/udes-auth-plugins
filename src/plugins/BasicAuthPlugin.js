@@ -1,4 +1,4 @@
-import AuthHandler from './lib/AuthHandler'
+import { AuthHandler } from 'udes-node-orchestrator'
 
 /**
  * Authentication using a user/pass in basic auth format.

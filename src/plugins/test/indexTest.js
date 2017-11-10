@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* eslint no-unused-expressions: 0 */
 import { expect } from 'chai'
-import * as Plugins from '../'
+import * as Plugins from '../../index'
 
 const {
   BasicAuthPlugin,

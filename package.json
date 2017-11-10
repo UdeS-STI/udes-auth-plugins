@@ -2,13 +2,13 @@
   "name": "udes-auth-plugins",
   "version": "0.0.1",
   "description": "Collection of plugins to ease various authentication methods",
-  "main": "./dist/index.js",
+  "main": "./src/index.js",
   "scripts": {
     "audit": "node_modules/.bin/nsp check",
     "build": "babel ./src --out-dir dist --ignore '**/*Test.js'",
-    "coverage": "NODE_ENV=test node_modules/.bin/nyc --require babel-core/register -x '**/**Test.js' node_modules/.bin/mocha --opts ../mocha.opts \\ **/**Test.js",
+    "coverage": "NODE_ENV=test node_modules/.bin/nyc --require babel-core/register -x '**/**Test.js' node_modules/.bin/mocha --opts ../mocha.opts \\ ./src**/**Test.js",
     "lint": "eslint ./src",
-    "test": "NODE_ENV=test mocha --compilers js:babel-core/register --opts ../mocha.opts **/**Test.js"
+    "test": "NODE_ENV=test mocha --compilers js:babel-core/register --opts ../mocha.opts ./src/**/**Test.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,8 @@
     "url": "https://github.com/UdeS-STI/udes-auth-plugins/issues"
   },
   "dependencies": {
-    "request": "2.83.0"
+    "request": "2.83.0",
+    "udes-node-orchestrator": "2.0.0"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
