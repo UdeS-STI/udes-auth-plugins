@@ -1,6 +1,8 @@
 UdeS Auth Plugins
 =================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/UdeS-STI/udes-auth-plugins.svg)](https://greenkeeper.io/)
+
 [![CircleCI](https://circleci.com/gh/UdeS-STI/udes-auth-plugins.svg?style=svg)](https://circleci.com/gh/UdeS-STI/udes-auth-plugins)
 [![npm](https://img.shields.io/npm/v/udes-auth-plugins.svg?style=flat-square)](https://www.npmjs.com/package/udes-auth-plugins)
 ![Node](https://img.shields.io/badge/node-6.10.1-brightgreen.svg)
