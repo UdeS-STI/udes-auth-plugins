@@ -1,6 +1,6 @@
 {
   "name": "udes-auth-plugins",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Collection of plugins to ease various authentication methods",
   "main": "./src/index.js",
   "scripts": {
