@@ -1,0 +1,13 @@
+*.iml
+*.log
+.babelrc
+.circleci
+.idea
+.nsprc
+.nyc_output
+coverage
+docs
+mocha.opts
+package-lock.json
+node_modules
+src
