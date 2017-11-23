@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "request": "2.83.0",
-    "udes-node-orchestrator": "2.0.0"
+    "udes-node-orchestrator": "2.1.0"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
