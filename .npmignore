@@ -8,6 +8,5 @@
 coverage
 docs
 mocha.opts
-package-lock.json
 node_modules
 src
