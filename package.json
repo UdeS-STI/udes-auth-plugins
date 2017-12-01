@@ -1,8 +1,8 @@
 {
   "name": "udes-auth-plugins",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Collection of plugins to ease various authentication methods",
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "audit": "node_modules/.bin/nsp check",
     "build": "babel ./src --out-dir dist --ignore '**/*Test.js'",

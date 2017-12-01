@@ -10,12 +10,14 @@ export default class BasicAuthProxyTicketPlugin extends AuthHandler {
    * @async
    * @param {Object} session - Session variables.
    * @param {Object} options - HTTP options.
-   * @param {Boolean} [retry=true] - Retry authentication when a 401 is returned if true.
+   * @param {Boolean} [isFirstAttempt=true] - If false, the Proxy Ticket will be renewed.
    * @returns {Object} HTTP options with appended auth info.
    */
-  async authenticate (session, options, retry) {
+  async authenticate (session, options, isFirstAttempt) {
     try {
-      session.cas.pt = session.cas.pt || await session.getProxyTicket(session.targetService, !retry)
+      if (!isFirstAttempt || !session.cas.pt) {
+        session.cas.pt = await session.getProxyTicket(session.targetService, !isFirstAttempt)
+      }
     } catch (err) {}
 
     return {
