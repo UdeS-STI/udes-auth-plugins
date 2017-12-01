@@ -15,10 +15,8 @@ export default class BasicAuthProxyTicketPlugin extends AuthHandler {
    */
   async authenticate (session, options, isFirstAttempt) {
     try {
-      if (isFirstAttempt) {
-        session.cas.pt = session.cas.pt || await session.getProxyTicket(session.targetService)
-      } else {
-        session.cas.pt = await session.getProxyTicket(session.targetService, true)
+      if (!isFirstAttempt || !session.cas.pt) {
+        session.cas.pt = await session.getProxyTicket(session.targetService, !isFirstAttempt)
       }
     } catch (err) {}
 
