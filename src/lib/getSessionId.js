@@ -11,7 +11,7 @@ export const getSessionId = (session, retry = true) => new Promise(async (resolv
   let pt
 
   try {
-    pt = await session.getProxyTicket(session.targetService, !retry)
+    pt = await session.getProxyTicket(session.targetService)
   } catch (error) {
     reject(error)
   }
