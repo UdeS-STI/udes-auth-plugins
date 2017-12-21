@@ -15,8 +15,8 @@ export default class BasicAuthPlugin extends AuthHandler {
     return {
       ...options,
       auth: {
-        user: session.cas.user,
-        pass: session.cas.pass,
+        user: session.auth.user,
+        pass: session.auth.pass,
       },
     }
   }
