@@ -39,8 +39,8 @@ describe('lib/BasicAuthPlugin', () => {
       })
       expect(authData).to.be.deep.equal({
         headers: {
-          Authorization: 'Basic bmV3dXNlcjpuZXdwYXNz'
-        }
+          Authorization: 'Basic bmV3dXNlcjpuZXdwYXNz',
+        },
       })
     })
   })
