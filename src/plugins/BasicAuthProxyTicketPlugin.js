@@ -1,4 +1,4 @@
-import { AuthHandler } from 'udes-node-orchestrator'
+import { AuthHandler, Utils } from 'udes-node-orchestrator'
 
 /**
  * Authentication using a user/pt in basic auth format.
@@ -20,11 +20,13 @@ export default class BasicAuthProxyTicketPlugin extends AuthHandler {
       }
     } catch (err) {}
 
+    const { user, pt } = session.cas
+
     return {
       ...options,
-      auth: {
-        user: session.cas.user,
-        pass: session.cas.pt,
+      headers: {
+        ...(options.headers || {}),
+        Authorization: `Basic ${Utils.base64Encode(`${user}:${pt}`)}`,
       },
     }
   }
