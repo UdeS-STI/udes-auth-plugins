@@ -12,9 +12,8 @@ const session = {
 }
 
 const authObject = {
-  auth: {
-    user: 'user',
-    pass: 'pass',
+  headers: {
+    Authorization: 'Basic dXNlcjpwYXNz',
   },
 }
 
@@ -30,6 +29,19 @@ describe('lib/BasicAuthPlugin', () => {
       const plugin = new BasicAuthPlugin()
       const authData = await plugin.authenticate(session, options)
       expect(authData).to.be.deep.equal(authObject)
+    })
+
+    it('should return correct HTTP options for basic auth when passing custom auth options', async () => {
+      const plugin = new BasicAuthPlugin()
+      const authData = await plugin.authenticate(session, {
+        user: 'newuser',
+        pass: 'newpass',
+      })
+      expect(authData).to.be.deep.equal({
+        headers: {
+          Authorization: 'Basic bmV3dXNlcjpuZXdwYXNz',
+        },
+      })
     })
   })
 })

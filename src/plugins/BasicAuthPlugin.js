@@ -1,4 +1,4 @@
-import { AuthHandler } from 'udes-node-orchestrator'
+import { AuthHandler, Utils } from 'udes-node-orchestrator'
 
 /**
  * Authentication using a user/pass in basic auth format.
@@ -12,11 +12,17 @@ export default class BasicAuthPlugin extends AuthHandler {
    * @returns {Object} HTTP options with appended auth info.
    */
   authenticate (session, options) {
+    const pass = options.pass || session.cas.pass
+    const user = options.user || session.cas.user
+
+    delete options.pass
+    delete options.user
+
     return {
       ...options,
-      auth: {
-        user: session.cas.user,
-        pass: session.cas.pass,
+      headers: {
+        ...(options.headers || {}),
+        Authorization: `Basic ${Utils.base64Encode(`${user}:${pass}`)}`,
       },
     }
   }

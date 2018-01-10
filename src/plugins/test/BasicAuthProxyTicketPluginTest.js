@@ -12,9 +12,8 @@ const session = {
 }
 
 const authObject = {
-  auth: {
-    user: 'user',
-    pass: 'pt',
+  headers: {
+    Authorization: 'Basic dXNlcjpwdA==',
   },
 }
 
