@@ -12,18 +12,24 @@ export default class BasicAuthPlugin extends AuthHandler {
    * @returns {Object} HTTP options with appended auth info.
    */
   authenticate (session, options) {
-    const pass = options.pass || session.cas.pass
-    const user = options.user || session.cas.user
+    const cas = session.cas || {}
+    const pass = options.pass || cas.pass
+    const user = options.user || cas.user
 
     delete options.pass
     delete options.user
 
-    return {
+    const newOptions = {
       ...options,
       headers: {
         ...(options.headers || {}),
-        Authorization: `Basic ${Utils.base64Encode(`${user}:${pass}`)}`,
       },
     }
+
+    if (user && pass) {
+      newOptions.headers.Authorization = `Basic ${Utils.base64Encode(`${user}:${pass}`)}`
+    }
+
+    return newOptions
   }
 }
