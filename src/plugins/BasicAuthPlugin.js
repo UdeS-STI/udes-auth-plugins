@@ -12,14 +12,14 @@ export default class BasicAuthPlugin extends AuthHandler {
    * @returns {Object} HTTP options with appended auth info.
    */
   authenticate (session, options) {
-    const cas = session.cas || {};
+    const cas = session.cas || {}
     const pass = options.pass || cas.pass
     const user = options.user || cas.user
 
     delete options.pass
     delete options.user
 
-    const newOptions  = {
+    const newOptions = {
       ...options,
       headers: {
         ...(options.headers || {}),
