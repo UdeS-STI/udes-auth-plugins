@@ -1,5 +1,5 @@
-import { AuthHandler } from 'udes-node-orchestrator'
-import { getSessionId } from '../lib/getSessionId'
+import { AuthHandler } from 'udes-node-orchestrator';
+import { getSessionId } from '../lib/getSessionId';
 
 /**
  * Authentication using a session id.
@@ -13,13 +13,13 @@ export default class SessionIdPlugin extends AuthHandler {
    * @param {Object} options - HTTP options.
    * @returns {Object} HTTP options with appended auth info.
    */
-  async authenticate (session, options) {
+  async authenticate(session, options) {
     return {
       ...options,
       headers: {
         ...(options.headers || {}),
         'x-sessionid': session.apiSessionIds[session.path] || await getSessionId(session),
       },
-    }
+    };
   }
 }
