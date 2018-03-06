@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "request": "^2.83.0",
-    "udes-node-orchestrator": "^2.3.0"
+    "udes-node-orchestrator": "^2.4.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
