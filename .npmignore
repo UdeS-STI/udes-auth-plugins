@@ -2,6 +2,8 @@
 *.log
 .babelrc
 .circleci
+.editorconfig
+.eslintignore
 .idea
 .nsprc
 .nyc_output
@@ -10,3 +12,4 @@ docs
 mocha.opts
 node_modules
 src
+
