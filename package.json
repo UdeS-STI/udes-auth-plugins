@@ -8,7 +8,9 @@
     "coverage": "cross-env NODE_ENV=test node_modules/.bin/nyc --require babel-core/register -x '**/**Test.js' node_modules/.bin/mocha --opts ../mocha.opts \\ ./src/**/**Test.js",
     "format": "eslint . --fix",
     "lint": "eslint .",
-    "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --opts ../mocha.opts ./src/**/**Test.js"
+    "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --opts ../mocha.opts ./src/**/**Test.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,8 @@
   },
   "dependencies": {
     "request": "^2.88.0",
-    "udes-node-orchestrator": "^2.4.3"
+    "udes-node-orchestrator": "^2.4.3",
+    "snyk": "^1.320.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -32,8 +35,9 @@
     "chai": "^4.2.0",
     "cross-env": "^5.2.0",
     "eslint-config-udes": "^0.2.1",
-    "mocha": "^5.2.0",
-    "nyc": "^13.0.1"
+    "mocha": "^6.2.3",
+    "nyc": "^14.0.0"
   },
-  "homepage": "https://github.com/UdeS-STI/udes-auth-plugins#readme"
+  "homepage": "https://github.com/UdeS-STI/udes-auth-plugins#readme",
+  "snyk": true
 }
